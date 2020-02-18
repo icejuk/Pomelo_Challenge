@@ -1,0 +1,24 @@
+{
+  "name": "Pomelo_Challenge",
+  "version": "1.0.0",
+  "description": "Pomelo_Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icejuk/Pomelo_Challenge.git"
+  },
+  "keywords": [],
+  "author": "Waranya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icejuk/Pomelo_Challenge/issues"
+  },
+  "homepage": "https://github.com/icejuk/Pomelo_Challenge#readme",
+  "dependencies": {
+    "@hapi/hapi": "^19.1.1",
+    "hapi": "^8.1.0"
+  }
+}
