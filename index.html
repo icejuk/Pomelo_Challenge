@@ -1,0 +1,75 @@
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style>
+		.pagination {
+			display: inline-block;
+		}
+
+		.pagination span {
+			color: black;
+			float: left;
+			padding: 8px 16px;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.pagination span.active {
+			background-color: #4CAF50;
+			color: white;
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid black;
+		}
+
+		.pagination a:hover:not(.active) {
+			background-color: #ddd;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="table" style="height: 300px;"></div>
+	<div class="pagination">
+		<span id="page1" onclick="search(1);">1</span>
+		<span id="page2" onclick="search(2);">2</span>
+		<span id="page3" onclick="search(3);">3</span>
+		<span id="page4" onclick="search(4);">4</span>
+		<span id="page5" onclick="search(5);">5</span>
+		<span id="page6" onclick="search(6);">6</span>
+		<span id="page7" onclick="search(7);">7</span>
+		<span id="page8" onclick="search(8);">8</span>
+		<span id="page9" onclick="search(9);">9</span>
+		<span id="page10" onclick="search(10);">10</span>
+	</div>
+</body>
+
+</html>
+
+<script>
+	$(document).ready(function () {
+		search(1);
+	});
+
+	async function search(pageNo) {
+		const res = await fetch(`https://api.github.com/search/code?q=addClass+user:mozilla&page=${pageNo}&per_page=10`);
+		const json = await res.json();
+		drawTable(json.items);
+		$('.pagination > span').removeClass('active');
+		$('#page' + pageNo).addClass('active');
+	}
+
+	function drawTable(items) {
+		let html = '<table>';
+		for (const item of items) {
+			html += `<tr><td>${item.name}</td><td>${item.path}</td></tr>`;
+		}
+		html += '</table>';
+		$('#table').html(html);
+	}
+
+</script>
