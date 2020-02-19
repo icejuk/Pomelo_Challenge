@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/icejuk/Pomelo_Challenge#readme",
   "dependencies": {
-    "@hapi/hapi": "^19.1.1",
     "hapi": "^8.1.0"
   }
 }
